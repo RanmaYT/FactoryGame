@@ -11,11 +11,13 @@ GameObject:
   - component: {fileID: 7772267438388580219}
   - component: {fileID: 8168726202825193610}
   - component: {fileID: 5272589915415413498}
-  - component: {fileID: 2956186863005973526}
+  - component: {fileID: 2141468149797477298}
   - component: {fileID: -6738122511245377098}
+  - component: {fileID: -2196280246113762860}
+  - component: {fileID: -1122155293913719938}
   m_Layer: 0
   m_Name: Triangle
-  m_TagString: Untagged
+  m_TagString: Triangle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,8 +116,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!60 &2956186863005973526
-PolygonCollider2D:
+--- !u!58 &2141468149797477298
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,22 +148,9 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
-  m_UseDelaunayMesh: 0
+  m_Offset: {x: 0, y: 0.3}
+  serializedVersion: 2
+  m_Radius: 0.125
 --- !u!114 &-6738122511245377098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +163,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3700829e9a7d51e47b5107d241f7d84e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 2.5
   maxDistance: -1
   direction: {x: 0, y: 0}
+  setted: 0
+--- !u!114 &-2196280246113762860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794610113246570461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12065e095de19a045b7f8536d7e7d097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1122155293913719938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794610113246570461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45447e488e59ec84c92357b037aacfb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBonus: 0
+  pointBonus: 0

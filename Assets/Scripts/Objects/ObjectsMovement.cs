@@ -8,6 +8,7 @@ public class ObjectsMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     private ButtonManager buttonManager;
+    private GameManager gameManager;
 
     public float speed = 1f;
     public float maxDistance;
@@ -18,7 +19,9 @@ public class ObjectsMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
         buttonManager = FindAnyObjectByType<ButtonManager>();
+        gameManager = FindAnyObjectByType<GameManager>();
     }
 
     // Update is called once per frame
@@ -33,27 +36,37 @@ public class ObjectsMovement : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
-        Movement();   
+    {   
+        if(!gameManager.onCentralArea)
+        {
+            Movement();   
+        }
+        else
+        {
+            if(!setted)
+            {
+                rb.velocity = Vector2.zero;
+            }
+            else
+            {
+                Movement();
+            }
+        }
     }
 
     private void Movement()
     {
-        // I need to move them in the y pos until it's equals -3;
+        // I need to move them in the y pos until it's equals the max distance;
 
-        if(transform.position.y > maxDistance)
+        if(transform.position.y >= maxDistance)
         {
             rb.velocity = Vector2.down * speed;
         }
         else
         {
-            // I will need to stop after getting in the -3;
+            // I will need to stop after getting in the max distance;
 
-            rb.velocity = direction;
+            rb.velocity = direction * speed;
         }
-
-
-
-        // Get the direction from the buttons;
     }
 }

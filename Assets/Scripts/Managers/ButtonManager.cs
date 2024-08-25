@@ -4,28 +4,29 @@ using UnityEngine;
 
 public class ButtonManager : MonoBehaviour
 {
+    private GameManager gameManager;
 
     public float hMove;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        gameManager = FindAnyObjectByType<GameManager>();
     }
 
     public void LeftButton()
     {
-        hMove = -1;
+        if (gameManager.onCentralArea)
+        {
+            hMove = -1;
+        }
     }
 
     public void RightButton()
     {
-        hMove = 1;
+        if (gameManager.onCentralArea)
+        {
+            hMove = 1;
+        }
     }
 }
