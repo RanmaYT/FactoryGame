@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ButtonManager : MonoBehaviour
 {
+    [SerializeField] AudioSource clickAudio;
+
     private GameManager gameManager;
 
     public float hMove;
@@ -18,6 +20,7 @@ public class ButtonManager : MonoBehaviour
     {
         if (gameManager.onCentralArea)
         {
+            clickAudio.Play();
             hMove = -1;
         }
     }
@@ -26,6 +29,7 @@ public class ButtonManager : MonoBehaviour
     {
         if (gameManager.onCentralArea)
         {
+            clickAudio.Play();
             hMove = 1;
         }
     }

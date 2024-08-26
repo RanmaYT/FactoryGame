@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ColorRandomizer : MonoBehaviour
 {
-    private ObjectsValue objectsValue;
     private SpriteRenderer sr;
+    private ObjectsValue objectsValue;
     private int index;
 
     // Start is called before the first frame update

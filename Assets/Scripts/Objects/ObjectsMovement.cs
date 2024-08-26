@@ -29,7 +29,7 @@ public class ObjectsMovement : MonoBehaviour
     {
         if(buttonManager.hMove != 0 && !setted)
         {
-            direction = new Vector2(buttonManager.hMove, 0);
+            direction = new Vector2(buttonManager.hMove * 3, 0);
             buttonManager.hMove = 0;
             setted = true;
         }

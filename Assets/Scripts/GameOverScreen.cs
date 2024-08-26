@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
+    [SerializeField] AudioSource clickAudio;
     [SerializeField] private PointsManager points;
     [SerializeField] private TimerManager timer;
     [SerializeField] TMP_Text pointsText;
@@ -46,6 +47,7 @@ public class GameOverScreen : MonoBehaviour
 
     IEnumerator LoadCooldown()
     {
+        clickAudio.Play();
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(index);
     }

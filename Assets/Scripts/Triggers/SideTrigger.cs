@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class SideTrigger : MonoBehaviour
 {
+    [SerializeField] AudioSource perfectSound;
+    [SerializeField] AudioSource missSound;
 
     private TimerBar timerBar;
     private TimerManager timerManager;
     private PointsManager pointsManager;
 
     public string objectTag;
-    public int timeBonus = 3;
-    public int pointBonus = 1;
 
     private void Start()
     {
@@ -24,8 +24,10 @@ public class SideTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag(objectTag))
         {
-            timerManager.currentTimer += timeBonus;
-            pointsManager.points += pointBonus;
+            perfectSound.Play();
+
+            timerManager.currentTimer += other.gameObject.GetComponent<ObjectsValue>().timeBonus;
+            pointsManager.points += other.gameObject.GetComponent<ObjectsValue>().pointBonus; ;
             pointsManager.streak++;
 
             timerBar.SetCurrentTimer(timerManager.currentTimer);
@@ -34,9 +36,11 @@ public class SideTrigger : MonoBehaviour
         }
         else
         {
+            missSound.Play();
+
             pointsManager.streak = 0;
 
-            timerManager.currentTimer -= timeBonus;
+            timerManager.currentTimer -= other.gameObject.GetComponent<ObjectsValue>().timeBonus;
             timerBar.SetCurrentTimer(timerManager.currentTimer);
 
 

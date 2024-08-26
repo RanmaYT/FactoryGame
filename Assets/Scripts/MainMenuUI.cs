@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
+    [SerializeField] AudioSource clickAudio;
+
     int index;
     public void PlayButton()
     {
@@ -25,6 +27,7 @@ public class MainMenuUI : MonoBehaviour
 
     IEnumerator LoadCooldown()
     {
+        clickAudio.Play();
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(index);
     }
